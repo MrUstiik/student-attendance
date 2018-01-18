@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Subject" type="SubjectType"/>
+    <xs:complexType name="SubjectType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="Title" minOccurs="1" maxOccurs="1"/>
+            <xs:element type="xs:string" name="Group" minOccurs="1" maxOccurs="1"/>
+            <xs:element type="xs:string" name="Lecturer" minOccurs="1" maxOccurs="1"/>
+            <xs:element type="xs:string" name="PracticalLecturer" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="StudentsType" name="Students"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StudentsType">
+        <xs:sequence>
+            <xs:element type="StudentType" name="Student" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StudentType">
+        <xs:sequence>
+            <xs:element type="LecturesType" name="Lectures" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="name" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="LecturesType">
+        <xs:sequence>
+            <xs:element type="LectureType" name="Lecture" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LectureType">
+        <xs:sequence>
+            <xs:element type="AttendanceType" name="Attendance" minOccurs="1" maxOccurs="1" default="NULL"/>
+        </xs:sequence>
+        <xs:attribute type="LectureTypeType" name="type" use="required"/>
+        <xs:attribute type="xs:dateTime" name="dateTime" use="required"/>
+        <xs:attribute type="xs:string" name="audience" use="required"/>
+        <xs:attribute type="xs:string" name="note" use="optional"/>
+    </xs:complexType>
+    <xs:simpleType name="AttendanceType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ATTEND"/>
+            <xs:enumeration value="ABSENT"/>
+            <xs:enumeration value="LATE"/>
+            <xs:enumeration value="NULL"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="LectureTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="LECTURE"/>
+            <xs:enumeration value="PRACTICAL"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

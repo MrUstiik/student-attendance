@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Subject xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="schema.xsd">
+    <Title>TitleName</Title>
+    <Group>GroupName</Group>
+    <Lecturer>LecturerName</Lecturer>
+    <PracticalLecturer>PLName</PracticalLecturer>
+    <Students>
+        <Student name="Stud1">
+            <Lectures>
+                <Lecture type="LECTURE" dateTime="2017-05-26T08:30:00" audience="U-1 402" note="note">
+                    <Attendance>ATTEND</Attendance>
+                </Lecture>
+                <Lecture type="PRACTICAL" dateTime="2017-05-26T10:25:00" audience="U-1 402" note="note">
+                    <Attendance>ABSENT</Attendance>
+                </Lecture>
+            </Lectures>
+        </Student>
+        <Student name="Stud2">
+            <Lectures>
+                <Lecture type="LECTURE" dateTime="2017-05-26T08:30:00" audience="U-1 402" note="note">
+                    <Attendance>LATE</Attendance>
+                </Lecture>
+                <Lecture type="PRACTICAL" dateTime="2017-05-26T10:25:00" audience="U-1 402" note="note">
+                    <Attendance>NULL</Attendance>
+                </Lecture>
+            </Lectures>
+        </Student>
+    </Students>
+</Subject>
